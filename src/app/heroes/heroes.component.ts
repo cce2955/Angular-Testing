@@ -7,6 +7,7 @@ import { HeroService } from "../hero.service";
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.css']
   
+  
 })
 
 
