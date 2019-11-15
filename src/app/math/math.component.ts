@@ -6,7 +6,7 @@ import { Variable } from '@angular/compiler/src/render3/r3_ast';
     templateUrl: './math.component.html',
     styleUrls: ['./math.component.css'],
 
-    template:'<br> {{add(2,3)}}  <br> {{add(45,3)}}  <br> {{add(19,3)}}  <br> {{helloWorld()}} <button (click)="onClickMe()">Click me!</button> {{clickMessage}}'
+    
 
   })
 export class MathComponent implements OnInit {
@@ -14,10 +14,22 @@ export class MathComponent implements OnInit {
     clickMessage = '';
 
     onClickMe() {
-      this.clickMessage = 'You are my hero!';
+      
+      var num:number = parseInt(document.getElementById("1").value);
+      var num2:number = parseInt(document.getElementById("2").value);
+      //I know this is wrong because angular is throwing a huge hissy fit, but for now this works, I'll look into other stuff later.
+
+      if (!num || !num2)
+      {
+        this.clickMessage = "Please enter something";
+      }
+      else{
+        this.clickMessage = 'Sum is: ' + this.add(num,num2);
+      }
+      
     }
   add( x:number  ,y:number ):number{
-    
+      
     return x + y;
   }
 
